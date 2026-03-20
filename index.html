@@ -1344,6 +1344,140 @@
 
 
         /* ==========================================================================
+           REVIEWS / TESTIMONIALS
+           ========================================================================== */
+
+        .reviews {
+            padding: var(--space-24) 0;
+        }
+
+        .reviews__header {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding: 0 var(--space-6);
+        }
+
+        .reviews__eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-3);
+            font-family: var(--font-body);
+            font-size: 0.8125rem;
+            font-weight: var(--weight-medium);
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: var(--accent-navy);
+            margin-bottom: var(--space-4);
+        }
+
+        .reviews__eyebrow::before {
+            content: '';
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--accent-navy);
+            border-radius: 1px;
+            flex-shrink: 0;
+        }
+
+        .reviews__title {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            font-weight: var(--weight-regular);
+            color: var(--text-primary);
+            line-height: var(--leading-tight);
+        }
+
+        /* 3-column grid */
+        .reviews__grid {
+            max-width: var(--container-max);
+            margin: 48px auto 0;
+            padding: 0 var(--space-6);
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        /* Card */
+        .reviews__card {
+            background: var(--bg-card);
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            transition: box-shadow var(--duration-base) var(--ease-out);
+        }
+
+        .reviews__card:hover {
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Stars */
+        .reviews__stars {
+            font-size: var(--text-sm);
+            letter-spacing: 2px;
+            color: var(--accent-warm);
+            margin-bottom: var(--space-5);
+            line-height: 1;
+        }
+
+        /* Quote text */
+        .reviews__text {
+            font-family: var(--font-heading);
+            font-style: italic;
+            font-size: 0.9375rem;
+            font-weight: var(--weight-regular);
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        /* Author row */
+        .reviews__author {
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+            padding-top: 16px;
+            border-top: 1px solid var(--border-light);
+        }
+
+        .reviews__avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--accent-navy-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .reviews__avatar-initials {
+            font-family: var(--font-body);
+            font-size: var(--text-sm);
+            font-weight: var(--weight-semibold);
+            color: var(--accent-navy);
+            line-height: 1;
+        }
+
+        .reviews__author-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .reviews__author-name {
+            font-size: var(--text-sm);
+            font-weight: var(--weight-semibold);
+            color: var(--text-primary);
+        }
+
+        .reviews__author-role {
+            font-size: var(--text-xs);
+            color: var(--text-tertiary);
+        }
+
+
+        /* ==========================================================================
            PLACEHOLDER SECTION STYLES (temporary visual markers)
            ========================================================================== */
 
@@ -1448,6 +1582,11 @@
 
             .how__steps {
                 grid-template-columns: repeat(2, 1fr);
+            }
+
+            /* Reviews tablet */
+            .reviews__title {
+                font-size: 2rem;
             }
         }
 
@@ -1641,6 +1780,24 @@
                 height: 250px;
                 top: -80px;
                 right: -60px;
+            }
+
+            /* Reviews mobile */
+            .reviews__grid {
+                grid-template-columns: 1fr;
+                padding: 0 var(--space-4);
+            }
+
+            .reviews__header {
+                padding: 0 var(--space-4);
+            }
+
+            .reviews__title {
+                font-size: 1.75rem;
+            }
+
+            .reviews__card {
+                padding: 24px;
             }
         }
     </style>
@@ -1906,8 +2063,59 @@
     </section>
 
     <!-- ===== REVIEWS ===== -->
-    <section id="reviews" class="section--secondary section-placeholder">
-        <span class="section-placeholder__label">Reviews Section</span>
+    <section id="reviews" class="reviews section--primary">
+
+        <div class="reviews__header reveal">
+            <span class="reviews__eyebrow">Отзывы</span>
+            <h2 class="reviews__title">Что говорят клиенты</h2>
+        </div>
+
+        <div class="reviews__grid">
+
+            <div class="reviews__card reveal stagger-1">
+                <div class="reviews__stars">★★★★★</div>
+                <p class="reviews__text">«Елена помогла мне выбраться из&nbsp;состояния, когда я&nbsp;не&nbsp;могла встать с&nbsp;кровати. За&nbsp;три месяца я&nbsp;вернулась к&nbsp;работе и&nbsp;стала спать без таблеток.»</p>
+                <div class="reviews__author">
+                    <div class="reviews__avatar">
+                        <span class="reviews__avatar-initials">АК</span>
+                    </div>
+                    <div class="reviews__author-info">
+                        <span class="reviews__author-name">Анна К.</span>
+                        <span class="reviews__author-role">Тревожное расстройство</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="reviews__card reveal stagger-2">
+                <div class="reviews__stars">★★★★★</div>
+                <p class="reviews__text">«Я&nbsp;скептически относился к&nbsp;терапии. Но&nbsp;Елена не&nbsp;давит и&nbsp;не&nbsp;лечит&nbsp;— она помогает разобраться самому. Очень ценю этот подход.»</p>
+                <div class="reviews__author">
+                    <div class="reviews__avatar">
+                        <span class="reviews__avatar-initials">ДМ</span>
+                    </div>
+                    <div class="reviews__author-info">
+                        <span class="reviews__author-name">Дмитрий М.</span>
+                        <span class="reviews__author-role">Выгорание</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="reviews__card reveal stagger-3">
+                <div class="reviews__stars">★★★★★</div>
+                <p class="reviews__text">«После развода не&nbsp;знала, как жить дальше. Елена стала моей опорой в&nbsp;самый тяжёлый период. Спасибо за&nbsp;бережность и&nbsp;профессионализм.»</p>
+                <div class="reviews__author">
+                    <div class="reviews__avatar">
+                        <span class="reviews__avatar-initials">ОС</span>
+                    </div>
+                    <div class="reviews__author-info">
+                        <span class="reviews__author-name">Ольга С.</span>
+                        <span class="reviews__author-role">Жизненный кризис</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
     </section>
 
     <!-- ===== BOOKING ===== -->
