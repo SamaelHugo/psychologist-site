@@ -31,6 +31,6 @@ Demo project for web developer portfolio. Must look like a real production site.
 - [x] Services (6 cards)
 - [x] How it works (dark block)
 - [x] Testimonials
-- [ ] Booking (interactive calendar)
+- [x] Booking (interactive calendar)
 - [ ] Payment section
 - [ ] CTA + Footer

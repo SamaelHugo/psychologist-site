@@ -1478,6 +1478,290 @@
 
 
         /* ==========================================================================
+           BOOKING
+           ========================================================================== */
+
+        .booking {
+            padding: var(--space-24) 0;
+        }
+
+        .booking__inner {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding: 0 var(--space-6);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-16);
+            align-items: start;
+        }
+
+        /* Left column — info */
+        .booking__info {
+            padding-top: var(--space-4);
+        }
+
+        .booking__eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-3);
+            font-family: var(--font-body);
+            font-size: 0.8125rem;
+            font-weight: var(--weight-medium);
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: var(--accent-navy);
+            margin-bottom: var(--space-4);
+        }
+
+        .booking__eyebrow::before {
+            content: '';
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--accent-navy);
+            border-radius: 1px;
+            flex-shrink: 0;
+        }
+
+        .booking__title {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            font-weight: var(--weight-regular);
+            color: var(--text-primary);
+            line-height: var(--leading-tight);
+            margin-bottom: var(--space-4);
+        }
+
+        .booking__desc {
+            font-size: var(--text-base);
+            color: var(--text-secondary);
+            line-height: 1.7;
+            max-width: 440px;
+        }
+
+        /* Feature items */
+        .booking__features {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin: 32px 0;
+        }
+
+        .booking__feature {
+            display: flex;
+            align-items: center;
+            gap: var(--space-4);
+        }
+
+        .booking__feature-icon {
+            width: 36px;
+            height: 36px;
+            background: var(--accent-navy-light);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            flex-shrink: 0;
+            line-height: 1;
+        }
+
+        .booking__feature-text {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+            line-height: 1.4;
+        }
+
+        /* Right column — calendar widget */
+        .booking__calendar {
+            background: var(--bg-card);
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            border-radius: 20px;
+            padding: 32px;
+            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.06);
+        }
+
+        /* Calendar header: month + arrows */
+        .cal__header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: var(--space-6);
+        }
+
+        .cal__month-label {
+            font-family: var(--font-heading);
+            font-size: var(--text-lg);
+            font-weight: var(--weight-medium);
+            color: var(--text-primary);
+        }
+
+        .cal__nav {
+            display: flex;
+            gap: var(--space-2);
+        }
+
+        .cal__nav-btn {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            border: 1.5px solid var(--border-light);
+            background: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            font-size: var(--text-base);
+            transition: all var(--duration-fast) var(--ease-out);
+            padding: 0;
+        }
+
+        .cal__nav-btn:hover {
+            border-color: var(--accent-navy);
+            color: var(--accent-navy);
+        }
+
+        /* Day names row */
+        .cal__day-names {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 6px;
+            margin-bottom: var(--space-2);
+        }
+
+        .cal__day-name {
+            text-align: center;
+            font-size: 0.6875rem;
+            font-weight: var(--weight-medium);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-tertiary);
+            padding: var(--space-1) 0;
+        }
+
+        /* Day grid */
+        .cal__days {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 6px;
+            margin-bottom: var(--space-6);
+        }
+
+        .cal__day {
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            font-size: var(--text-sm);
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all var(--duration-fast) var(--ease-out);
+            position: relative;
+            font-weight: var(--weight-regular);
+            border: 1.5px solid transparent;
+        }
+
+        .cal__day:hover:not(.cal__day--unavailable):not(.cal__day--empty) {
+            background: var(--accent-navy-light);
+            color: var(--accent-navy);
+        }
+
+        .cal__day--today {
+            border-color: var(--accent-navy);
+            color: var(--text-primary);
+            font-weight: var(--weight-semibold);
+        }
+
+        .cal__day--selected {
+            background: var(--accent-navy);
+            color: white;
+            font-weight: var(--weight-medium);
+            border-color: var(--accent-navy);
+        }
+
+        .cal__day--selected:hover {
+            background: var(--accent-navy-dark);
+            color: white;
+        }
+
+        .cal__day--unavailable {
+            opacity: 0.35;
+            cursor: default;
+        }
+
+        .cal__day--empty {
+            cursor: default;
+        }
+
+        /* Time slots label */
+        .cal__time-label {
+            font-size: var(--text-sm);
+            font-weight: var(--weight-medium);
+            color: var(--text-primary);
+            margin-bottom: var(--space-3);
+        }
+
+        /* Time slots row */
+        .cal__times {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .cal__time {
+            padding: 10px 18px;
+            border-radius: 10px;
+            border: 1.5px solid var(--border-light);
+            background: none;
+            cursor: pointer;
+            font-family: var(--font-body);
+            font-size: var(--text-sm);
+            color: var(--text-secondary);
+            transition: all var(--duration-fast) var(--ease-out);
+        }
+
+        .cal__time:hover {
+            border-color: var(--accent-navy);
+            color: var(--accent-navy);
+        }
+
+        .cal__time--selected {
+            border-color: var(--accent-navy);
+            background: var(--accent-navy-light);
+            color: var(--accent-navy);
+            font-weight: var(--weight-semibold);
+        }
+
+        /* Book button */
+        .cal__book-btn {
+            width: 100%;
+            padding: 16px;
+            border-radius: 12px;
+            border: none;
+            background: var(--accent-navy);
+            color: white;
+            font-family: var(--font-body);
+            font-size: 0.9375rem;
+            font-weight: var(--weight-semibold);
+            cursor: pointer;
+            transition: all var(--duration-base) var(--ease-out);
+        }
+
+        .cal__book-btn:hover:not(:disabled) {
+            background: var(--accent-navy-dark);
+            box-shadow: 0 4px 16px rgba(30, 58, 95, 0.25);
+        }
+
+        .cal__book-btn:disabled {
+            opacity: 0.45;
+            cursor: not-allowed;
+        }
+
+
+        /* ==========================================================================
            PLACEHOLDER SECTION STYLES (temporary visual markers)
            ========================================================================== */
 
@@ -1587,6 +1871,19 @@
             /* Reviews tablet */
             .reviews__title {
                 font-size: 2rem;
+            }
+
+            /* Booking tablet */
+            .booking__inner {
+                gap: var(--space-8);
+            }
+
+            .booking__title {
+                font-size: 2rem;
+            }
+
+            .booking__calendar {
+                padding: 24px;
             }
         }
 
@@ -1798,6 +2095,31 @@
 
             .reviews__card {
                 padding: 24px;
+            }
+
+            /* Booking mobile */
+            .booking__inner {
+                grid-template-columns: 1fr;
+                padding: 0 var(--space-4);
+                gap: var(--space-8);
+            }
+
+            .booking__title {
+                font-size: 1.75rem;
+            }
+
+            .booking__desc {
+                max-width: 100%;
+            }
+
+            .booking__calendar {
+                padding: 20px;
+                border-radius: var(--radius-lg);
+            }
+
+            .cal__time {
+                padding: 8px 14px;
+                font-size: var(--text-xs);
             }
         }
     </style>
@@ -2119,8 +2441,71 @@
     </section>
 
     <!-- ===== BOOKING ===== -->
-    <section id="booking" class="section--primary section-placeholder">
-        <span class="section-placeholder__label">Booking Section</span>
+    <section id="booking" class="booking section--primary">
+        <div class="booking__inner">
+
+            <!-- Left — info -->
+            <div class="booking__info reveal">
+                <span class="booking__eyebrow">Запись</span>
+                <h2 class="booking__title">Выберите удобное время</h2>
+                <p class="booking__desc">Запись открыта на&nbsp;2&nbsp;недели вперёд. Выберите дату и&nbsp;время&nbsp;— подтверждение придёт на&nbsp;email.</p>
+
+                <div class="booking__features">
+                    <div class="booking__feature">
+                        <span class="booking__feature-icon">📅</span>
+                        <span class="booking__feature-text">Гибкое расписание: будни и&nbsp;выходные</span>
+                    </div>
+                    <div class="booking__feature">
+                        <span class="booking__feature-icon">🔔</span>
+                        <span class="booking__feature-text">Напоминание за&nbsp;час до&nbsp;сессии</span>
+                    </div>
+                    <div class="booking__feature">
+                        <span class="booking__feature-icon">↩️</span>
+                        <span class="booking__feature-text">Бесплатная отмена за&nbsp;24&nbsp;часа</span>
+                    </div>
+                    <div class="booking__feature">
+                        <span class="booking__feature-icon">🔒</span>
+                        <span class="booking__feature-text">Полная конфиденциальность</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right — calendar widget -->
+            <div class="booking__calendar reveal stagger-2" id="calendarWidget">
+
+                <!-- Calendar header -->
+                <div class="cal__header">
+                    <span class="cal__month-label" id="calMonthLabel"></span>
+                    <div class="cal__nav">
+                        <button class="cal__nav-btn" id="calPrev" aria-label="Предыдущий месяц">←</button>
+                        <button class="cal__nav-btn" id="calNext" aria-label="Следующий месяц">→</button>
+                    </div>
+                </div>
+
+                <!-- Day names -->
+                <div class="cal__day-names">
+                    <span class="cal__day-name">Пн</span>
+                    <span class="cal__day-name">Вт</span>
+                    <span class="cal__day-name">Ср</span>
+                    <span class="cal__day-name">Чт</span>
+                    <span class="cal__day-name">Пт</span>
+                    <span class="cal__day-name">Сб</span>
+                    <span class="cal__day-name">Вс</span>
+                </div>
+
+                <!-- Day grid (generated by JS) -->
+                <div class="cal__days" id="calDays"></div>
+
+                <!-- Time slots -->
+                <div class="cal__time-label" id="calTimeLabel">Выберите дату</div>
+                <div class="cal__times" id="calTimes"></div>
+
+                <!-- Book button -->
+                <button class="cal__book-btn" id="calBookBtn" disabled>Выберите дату и время</button>
+
+            </div>
+
+        </div>
     </section>
 
     <!-- ===== PAYMENT ===== -->
@@ -2178,6 +2563,163 @@
                     document.body.style.overflow = '';
                 });
             });
+        })();
+
+
+        /* ==========================================================================
+           Booking calendar — interactive date/time picker
+           ========================================================================== */
+
+        (function() {
+            var MONTHS_NOM = ['Январь','Февраль','Март','Апрель','Май','Июнь',
+                              'Июль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь'];
+            var MONTHS_GEN = ['января','февраля','марта','апреля','мая','июня',
+                              'июля','августа','сентября','октября','ноября','декабря'];
+            var TIME_SLOTS = ['10:00','12:00','14:00','16:00','18:00','20:00'];
+
+            var today = new Date();
+            today.setHours(0,0,0,0);
+            var maxDate = new Date(today);
+            maxDate.setDate(maxDate.getDate() + 14);
+
+            var viewYear = today.getFullYear();
+            var viewMonth = today.getMonth();
+            var selectedDate = null;
+            var selectedTime = null;
+
+            var elLabel   = document.getElementById('calMonthLabel');
+            var elDays    = document.getElementById('calDays');
+            var elTimes   = document.getElementById('calTimes');
+            var elTimeLabel = document.getElementById('calTimeLabel');
+            var elBtn     = document.getElementById('calBookBtn');
+            var elPrev    = document.getElementById('calPrev');
+            var elNext    = document.getElementById('calNext');
+
+            function render() {
+                // Month label
+                elLabel.textContent = MONTHS_NOM[viewMonth] + ' ' + viewYear;
+
+                // Build day grid
+                elDays.innerHTML = '';
+                var firstDay = new Date(viewYear, viewMonth, 1).getDay();
+                // Convert Sunday=0 to Monday-first: Mon=0 .. Sun=6
+                var startOffset = (firstDay === 0) ? 6 : firstDay - 1;
+                var daysInMonth = new Date(viewYear, viewMonth + 1, 0).getDate();
+
+                // Empty cells before first day
+                for (var e = 0; e < startOffset; e++) {
+                    var empty = document.createElement('div');
+                    empty.className = 'cal__day cal__day--empty';
+                    elDays.appendChild(empty);
+                }
+
+                for (var d = 1; d <= daysInMonth; d++) {
+                    var cell = document.createElement('div');
+                    cell.className = 'cal__day';
+                    cell.textContent = d;
+
+                    var cellDate = new Date(viewYear, viewMonth, d);
+                    cellDate.setHours(0,0,0,0);
+
+                    if (cellDate < today || cellDate > maxDate) {
+                        cell.classList.add('cal__day--unavailable');
+                    } else {
+                        cell.dataset.day = d;
+                    }
+
+                    if (cellDate.getTime() === today.getTime()) {
+                        cell.classList.add('cal__day--today');
+                    }
+
+                    if (selectedDate &&
+                        cellDate.getTime() === selectedDate.getTime()) {
+                        cell.classList.add('cal__day--selected');
+                    }
+
+                    elDays.appendChild(cell);
+                }
+            }
+
+            function renderTimes() {
+                elTimes.innerHTML = '';
+                if (!selectedDate) {
+                    elTimeLabel.textContent = 'Выберите дату';
+                    return;
+                }
+                elTimeLabel.textContent = 'Доступное время';
+                TIME_SLOTS.forEach(function(t) {
+                    var btn = document.createElement('button');
+                    btn.className = 'cal__time';
+                    btn.textContent = t;
+                    btn.dataset.time = t;
+                    if (selectedTime === t) {
+                        btn.classList.add('cal__time--selected');
+                    }
+                    elTimes.appendChild(btn);
+                });
+            }
+
+            function updateButton() {
+                if (selectedDate && selectedTime) {
+                    var day = selectedDate.getDate();
+                    var monthGen = MONTHS_GEN[selectedDate.getMonth()];
+                    elBtn.textContent = 'Записаться на ' + day + ' ' + monthGen + ', ' + selectedTime + ' →';
+                    elBtn.disabled = false;
+                } else {
+                    elBtn.textContent = 'Выберите дату и время';
+                    elBtn.disabled = true;
+                }
+            }
+
+            // Day click
+            elDays.addEventListener('click', function(e) {
+                var cell = e.target.closest('.cal__day');
+                if (!cell || !cell.dataset.day) return;
+                var d = parseInt(cell.dataset.day, 10);
+                selectedDate = new Date(viewYear, viewMonth, d);
+                selectedDate.setHours(0,0,0,0);
+                selectedTime = null;
+                render();
+                renderTimes();
+                updateButton();
+            });
+
+            // Time click
+            elTimes.addEventListener('click', function(e) {
+                var btn = e.target.closest('.cal__time');
+                if (!btn || !btn.dataset.time) return;
+                selectedTime = btn.dataset.time;
+                renderTimes();
+                updateButton();
+            });
+
+            // Month navigation
+            elPrev.addEventListener('click', function() {
+                viewMonth--;
+                if (viewMonth < 0) { viewMonth = 11; viewYear--; }
+                render();
+                renderTimes();
+            });
+
+            elNext.addEventListener('click', function() {
+                viewMonth++;
+                if (viewMonth > 11) { viewMonth = 0; viewYear++; }
+                render();
+                renderTimes();
+            });
+
+            // Book button click (demo — scroll to payment)
+            elBtn.addEventListener('click', function() {
+                if (!elBtn.disabled) {
+                    var payment = document.getElementById('payment');
+                    if (payment) payment.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+
+            // Initial render
+            render();
+            renderTimes();
+            updateButton();
         })();
 
 
