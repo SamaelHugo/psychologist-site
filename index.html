@@ -1076,6 +1076,160 @@
 
 
         /* ==========================================================================
+           SERVICES
+           ========================================================================== */
+
+        .services {
+            padding: var(--space-24) 0;
+        }
+
+        .services__header {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding: 0 var(--space-6);
+        }
+
+        .services__eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-3);
+            font-family: var(--font-body);
+            font-size: 0.8125rem;
+            font-weight: var(--weight-medium);
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: var(--accent-navy);
+            margin-bottom: var(--space-4);
+        }
+
+        .services__eyebrow::before {
+            content: '';
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--accent-navy);
+            border-radius: 1px;
+            flex-shrink: 0;
+        }
+
+        .services__title {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            font-weight: var(--weight-regular);
+            color: var(--text-primary);
+            line-height: var(--leading-tight);
+            margin-bottom: var(--space-4);
+        }
+
+        .services__subtitle {
+            font-size: var(--text-base);
+            color: var(--text-secondary);
+            line-height: 1.7;
+            max-width: 520px;
+        }
+
+        /* 3-column card grid */
+        .services__grid {
+            max-width: var(--container-max);
+            margin: 48px auto 0;
+            padding: 0 var(--space-6);
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        /* Individual card */
+        .services__card {
+            background: var(--bg-card);
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            border-radius: var(--radius-lg);
+            padding: 36px;
+            position: relative;
+            overflow: hidden;
+            transition: transform var(--duration-base) var(--ease-out),
+                        box-shadow var(--duration-base) var(--ease-out);
+        }
+
+        /* Top accent line — grows on hover */
+        .services__card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--accent-navy);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform var(--duration-base) var(--ease-out);
+        }
+
+        .services__card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .services__card:hover::before {
+            transform: scaleX(1);
+        }
+
+        /* Icon container */
+        .services__icon {
+            width: 52px;
+            height: 52px;
+            background: var(--accent-navy-light);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: var(--space-5);
+            line-height: 1;
+        }
+
+        .services__card-title {
+            font-family: var(--font-heading);
+            font-size: var(--text-lg);
+            font-weight: var(--weight-semibold);
+            color: var(--text-primary);
+            margin-bottom: 10px;
+            line-height: var(--leading-snug);
+        }
+
+        .services__card-desc {
+            font-size: var(--text-sm);
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        /* Bottom row: duration + price */
+        .services__card-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 16px;
+            border-top: 1px solid var(--border-light);
+        }
+
+        .services__card-duration {
+            font-size: 0.8125rem;
+            color: var(--text-tertiary);
+        }
+
+        .services__card-price {
+            font-size: 1.0625rem;
+            font-weight: var(--weight-semibold);
+            color: var(--accent-navy);
+        }
+
+        /* Free badge for first consultation */
+        .services__card-price--free {
+            color: var(--accent-warm);
+        }
+
+
+        /* ==========================================================================
            PLACEHOLDER SECTION STYLES (temporary visual markers)
            ========================================================================== */
 
@@ -1157,6 +1311,15 @@
             }
 
             .about__title {
+                font-size: 2rem;
+            }
+
+            /* Services tablet */
+            .services__grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .services__title {
                 font-size: 2rem;
             }
         }
@@ -1299,6 +1462,24 @@
 
             .about__details {
                 grid-template-columns: 1fr;
+            }
+
+            /* Services mobile */
+            .services__grid {
+                grid-template-columns: 1fr;
+                padding: 0 var(--space-4);
+            }
+
+            .services__header {
+                padding: 0 var(--space-4);
+            }
+
+            .services__title {
+                font-size: 1.75rem;
+            }
+
+            .services__card {
+                padding: 28px;
             }
         }
     </style>
@@ -1455,8 +1636,78 @@
     </section>
 
     <!-- ===== SERVICES ===== -->
-    <section id="services" class="section--primary section-placeholder">
-        <span class="section-placeholder__label">Services Section</span>
+    <section id="services" class="services section--primary">
+
+        <div class="services__header reveal">
+            <span class="services__eyebrow">Услуги</span>
+            <h2 class="services__title">С&nbsp;чем я&nbsp;работаю</h2>
+            <p class="services__subtitle">Каждый запрос уникален. Вот направления, в&nbsp;которых я&nbsp;могу помочь.</p>
+        </div>
+
+        <div class="services__grid">
+
+            <div class="services__card reveal stagger-1">
+                <div class="services__icon">🌊</div>
+                <h3 class="services__card-title">Тревога и&nbsp;панические атаки</h3>
+                <p class="services__card-desc">Разберёмся с&nbsp;причинами тревоги, научимся управлять состоянием и&nbsp;снизим интенсивность приступов.</p>
+                <div class="services__card-footer">
+                    <span class="services__card-duration">⏱ 50 мин</span>
+                    <span class="services__card-price">3 500 ₽</span>
+                </div>
+            </div>
+
+            <div class="services__card reveal stagger-2">
+                <div class="services__icon">🔥</div>
+                <h3 class="services__card-title">Выгорание</h3>
+                <p class="services__card-desc">Восстановим ресурс, найдём причины истощения и&nbsp;построим устойчивую систему баланса работы и&nbsp;отдыха.</p>
+                <div class="services__card-footer">
+                    <span class="services__card-duration">⏱ 50 мин</span>
+                    <span class="services__card-price">3 500 ₽</span>
+                </div>
+            </div>
+
+            <div class="services__card reveal stagger-3">
+                <div class="services__icon">💬</div>
+                <h3 class="services__card-title">Отношения</h3>
+                <p class="services__card-desc">Поможу разобраться в&nbsp;конфликтах, выстроить границы и&nbsp;улучшить коммуникацию с&nbsp;партнёром и&nbsp;близкими.</p>
+                <div class="services__card-footer">
+                    <span class="services__card-duration">⏱ 50 мин</span>
+                    <span class="services__card-price">3 500 ₽</span>
+                </div>
+            </div>
+
+            <div class="services__card reveal stagger-4">
+                <div class="services__icon">🪞</div>
+                <h3 class="services__card-title">Самооценка</h3>
+                <p class="services__card-desc">Разберём внутреннего критика, вернём опору на&nbsp;себя и&nbsp;сформируем здоровое отношение к&nbsp;себе.</p>
+                <div class="services__card-footer">
+                    <span class="services__card-duration">⏱ 50 мин</span>
+                    <span class="services__card-price">3 500 ₽</span>
+                </div>
+            </div>
+
+            <div class="services__card reveal stagger-5">
+                <div class="services__icon">🌱</div>
+                <h3 class="services__card-title">Жизненные кризисы</h3>
+                <p class="services__card-desc">Развод, потеря, переезд, смена карьеры&nbsp;— поддержу в&nbsp;период перемен и&nbsp;помогу адаптироваться.</p>
+                <div class="services__card-footer">
+                    <span class="services__card-duration">⏱ 50 мин</span>
+                    <span class="services__card-price">3 500 ₽</span>
+                </div>
+            </div>
+
+            <div class="services__card reveal stagger-6">
+                <div class="services__icon">✨</div>
+                <h3 class="services__card-title">Первая консультация</h3>
+                <p class="services__card-desc">Знакомство, обсуждение запроса и&nbsp;определение плана работы. Без обязательств продолжать.</p>
+                <div class="services__card-footer">
+                    <span class="services__card-duration">⏱ 30 мин</span>
+                    <span class="services__card-price services__card-price--free">Бесплатно</span>
+                </div>
+            </div>
+
+        </div>
+
     </section>
 
     <!-- ===== HOW IT WORKS ===== -->

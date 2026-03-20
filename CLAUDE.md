@@ -28,7 +28,7 @@ Demo project for web developer portfolio. Must look like a real production site.
 - [x] Design system + nav
 - [x] Hero section
 - [x] About section
-- [ ] Services (6 cards)
+- [x] Services (6 cards)
 - [ ] How it works (dark block)
 - [ ] Testimonials
 - [ ] Booking (interactive calendar)
