@@ -33,4 +33,4 @@ Demo project for web developer portfolio. Must look like a real production site.
 - [x] Testimonials
 - [x] Booking (interactive calendar)
 - [x] Payment section
-- [ ] CTA + Footer
+- [x] CTA + Footer
