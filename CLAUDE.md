@@ -32,5 +32,5 @@ Demo project for web developer portfolio. Must look like a real production site.
 - [x] How it works (dark block)
 - [x] Testimonials
 - [x] Booking (interactive calendar)
-- [ ] Payment section
+- [x] Payment section
 - [ ] CTA + Footer

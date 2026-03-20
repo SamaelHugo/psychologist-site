@@ -1762,6 +1762,156 @@
 
 
         /* ==========================================================================
+           PAYMENT
+           ========================================================================== */
+
+        .payment {
+            padding: var(--space-24) var(--space-6);
+        }
+
+        .payment__container {
+            max-width: var(--container-wide);
+            margin: 0 auto;
+            background: var(--bg-secondary);
+            border-radius: var(--radius-2xl);
+            padding: 64px 80px;
+        }
+
+        .payment__grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: var(--space-16);
+            align-items: center;
+        }
+
+        /* Left — info */
+        .payment__eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-3);
+            font-family: var(--font-body);
+            font-size: 0.8125rem;
+            font-weight: var(--weight-medium);
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: var(--accent-navy);
+            margin-bottom: var(--space-4);
+        }
+
+        .payment__eyebrow::before {
+            content: '';
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--accent-navy);
+            border-radius: 1px;
+            flex-shrink: 0;
+        }
+
+        .payment__title {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            font-weight: var(--weight-regular);
+            color: var(--text-primary);
+            line-height: var(--leading-tight);
+            margin-bottom: var(--space-4);
+        }
+
+        .payment__desc {
+            font-size: var(--text-base);
+            color: var(--text-secondary);
+            line-height: 1.7;
+            max-width: 480px;
+        }
+
+        /* Payment method chips */
+        .payment__methods {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-top: 24px;
+        }
+
+        .payment__method {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-card);
+            border-radius: var(--radius-md);
+            padding: 14px 20px;
+            font-size: var(--text-sm);
+            color: var(--text-secondary);
+            line-height: 1;
+        }
+
+        .payment__method-icon {
+            font-size: 16px;
+            line-height: 1;
+        }
+
+        /* Right — price card */
+        .payment__price-card {
+            background: var(--bg-card);
+            border-radius: 20px;
+            padding: 36px;
+            text-align: center;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
+        }
+
+        .payment__price-label {
+            font-size: var(--text-sm);
+            color: var(--text-tertiary);
+            margin-bottom: var(--space-2);
+        }
+
+        .payment__price-value {
+            font-family: var(--font-heading);
+            font-size: 2.75rem;
+            font-weight: var(--weight-bold);
+            color: var(--accent-navy);
+            line-height: 1.2;
+            margin-bottom: var(--space-2);
+        }
+
+        .payment__price-sub {
+            font-size: var(--text-sm);
+            color: var(--text-tertiary);
+            margin-bottom: var(--space-8);
+        }
+
+        /* Coral CTA — the only non-navy CTA on the page */
+        .payment__cta {
+            width: 100%;
+            padding: 16px;
+            border-radius: 12px;
+            border: none;
+            background: var(--accent-warm);
+            color: white;
+            font-family: var(--font-body);
+            font-size: 0.9375rem;
+            font-weight: var(--weight-semibold);
+            cursor: pointer;
+            transition: all var(--duration-base) var(--ease-out);
+            margin-bottom: var(--space-4);
+        }
+
+        .payment__cta:hover {
+            background: var(--accent-warm-dark);
+            box-shadow: 0 8px 24px rgba(224, 122, 95, 0.3);
+        }
+
+        .payment__security {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            font-size: var(--text-xs);
+            color: var(--text-tertiary);
+        }
+
+
+        /* ==========================================================================
            PLACEHOLDER SECTION STYLES (temporary visual markers)
            ========================================================================== */
 
@@ -1884,6 +2034,19 @@
 
             .booking__calendar {
                 padding: 24px;
+            }
+
+            /* Payment tablet */
+            .payment__container {
+                padding: 48px;
+            }
+
+            .payment__grid {
+                gap: var(--space-10);
+            }
+
+            .payment__title {
+                font-size: 2rem;
             }
         }
 
@@ -2119,6 +2282,42 @@
 
             .cal__time {
                 padding: 8px 14px;
+                font-size: var(--text-xs);
+            }
+
+            /* Payment mobile */
+            .payment {
+                padding: var(--space-16) var(--space-4);
+            }
+
+            .payment__container {
+                padding: 32px 24px;
+                border-radius: var(--radius-xl);
+            }
+
+            .payment__grid {
+                grid-template-columns: 1fr;
+                gap: var(--space-8);
+            }
+
+            .payment__price-card {
+                order: -1;
+            }
+
+            .payment__title {
+                font-size: 1.75rem;
+            }
+
+            .payment__desc {
+                max-width: 100%;
+            }
+
+            .payment__methods {
+                gap: 10px;
+            }
+
+            .payment__method {
+                padding: 10px 14px;
                 font-size: var(--text-xs);
             }
         }
@@ -2509,8 +2708,47 @@
     </section>
 
     <!-- ===== PAYMENT ===== -->
-    <section id="payment" class="section--secondary section-placeholder">
-        <span class="section-placeholder__label">Payment Section</span>
+    <section id="payment" class="payment section--primary">
+        <div class="payment__container">
+            <div class="payment__grid">
+
+                <!-- Left — info -->
+                <div class="payment__info reveal">
+                    <span class="payment__eyebrow">Оплата</span>
+                    <h2 class="payment__title">Удобная оплата онлайн</h2>
+                    <p class="payment__desc">Оплата производится перед сессией. Если отменяете за&nbsp;24&nbsp;часа&nbsp;— полный возврат без вопросов.</p>
+
+                    <div class="payment__methods">
+                        <div class="payment__method">
+                            <span class="payment__method-icon">💳</span>
+                            Банковская карта
+                        </div>
+                        <div class="payment__method">
+                            <span class="payment__method-icon">⚡</span>
+                            СБП
+                        </div>
+                        <div class="payment__method">
+                            <span class="payment__method-icon">📱</span>
+                            Tinkoff Pay
+                        </div>
+                        <div class="payment__method">
+                            <span class="payment__method-icon">🔄</span>
+                            Перевод
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right — price card -->
+                <div class="payment__price-card reveal stagger-2">
+                    <div class="payment__price-label">Стоимость сессии</div>
+                    <div class="payment__price-value">3 500 ₽</div>
+                    <div class="payment__price-sub">50 минут · Онлайн · Zoom</div>
+                    <button class="payment__cta">Оплатить сессию →</button>
+                    <div class="payment__security">🔒 Безопасная оплата через ЮKassa</div>
+                </div>
+
+            </div>
+        </div>
     </section>
 
     <!-- ===== CTA ===== -->
