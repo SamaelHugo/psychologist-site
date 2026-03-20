@@ -26,7 +26,7 @@ Demo project for web developer portfolio. Must look like a real production site.
 
 ## Progress
 - [x] Design system + nav
-- [ ] Hero section
+- [x] Hero section
 - [ ] About section
 - [ ] Services (6 cards)
 - [ ] How it works (dark block)
