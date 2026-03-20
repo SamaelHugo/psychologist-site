@@ -29,7 +29,7 @@ Demo project for web developer portfolio. Must look like a real production site.
 - [x] Hero section
 - [x] About section
 - [x] Services (6 cards)
-- [ ] How it works (dark block)
+- [x] How it works (dark block)
 - [ ] Testimonials
 - [ ] Booking (interactive calendar)
 - [ ] Payment section

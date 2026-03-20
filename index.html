@@ -1230,6 +1230,120 @@
 
 
         /* ==========================================================================
+           HOW IT WORKS (dark section)
+           ========================================================================== */
+
+        .how {
+            padding: var(--space-24) var(--space-6);
+            background: var(--bg-primary);
+        }
+
+        .how__container {
+            max-width: var(--container-wide);
+            margin: 0 auto;
+            background: var(--dark-bg);
+            border-radius: var(--radius-2xl);
+            padding: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Decorative circle — top right */
+        .how__container::before {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.04);
+            top: -120px;
+            right: -80px;
+            pointer-events: none;
+        }
+
+        .how__eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-3);
+            font-family: var(--font-body);
+            font-size: 0.8125rem;
+            font-weight: var(--weight-medium);
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: var(--accent-navy-muted);
+            margin-bottom: var(--space-4);
+        }
+
+        .how__eyebrow::before {
+            content: '';
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--accent-navy-muted);
+            border-radius: 1px;
+            flex-shrink: 0;
+        }
+
+        .how__title {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            font-weight: var(--weight-regular);
+            color: var(--dark-text);
+            line-height: var(--leading-tight);
+            margin-bottom: var(--space-4);
+        }
+
+        .how__subtitle {
+            font-size: var(--text-base);
+            color: rgba(255, 255, 255, 0.6);
+            line-height: 1.7;
+        }
+
+        /* 4-column steps grid */
+        .how__steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 32px;
+            margin-top: 48px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .how__step {
+            position: relative;
+            padding-top: 60px;
+        }
+
+        /* Large faded number */
+        .how__step-number {
+            position: absolute;
+            top: 0;
+            left: 0;
+            font-family: var(--font-heading);
+            font-size: 3rem;
+            font-weight: var(--weight-bold);
+            color: rgba(255, 255, 255, 0.08);
+            line-height: 1;
+            user-select: none;
+        }
+
+        .how__step-title {
+            font-family: var(--font-body);
+            font-size: 1.0625rem;
+            font-weight: var(--weight-semibold);
+            color: var(--dark-text);
+            margin-bottom: var(--space-3);
+            line-height: var(--leading-snug);
+        }
+
+        .how__step-desc {
+            font-size: var(--text-sm);
+            color: rgba(255, 255, 255, 0.55);
+            line-height: 1.7;
+        }
+
+
+        /* ==========================================================================
            PLACEHOLDER SECTION STYLES (temporary visual markers)
            ========================================================================== */
 
@@ -1321,6 +1435,19 @@
 
             .services__title {
                 font-size: 2rem;
+            }
+
+            /* How it works tablet */
+            .how__container {
+                padding: 56px;
+            }
+
+            .how__title {
+                font-size: 2rem;
+            }
+
+            .how__steps {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
 
@@ -1480,6 +1607,40 @@
 
             .services__card {
                 padding: 28px;
+            }
+
+            /* How it works mobile */
+            .how {
+                padding: var(--space-16) var(--space-4);
+            }
+
+            .how__container {
+                padding: 40px 24px;
+                border-radius: var(--radius-xl);
+            }
+
+            .how__title {
+                font-size: 1.75rem;
+            }
+
+            .how__steps {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 24px;
+            }
+
+            .how__step-number {
+                font-size: 2.5rem;
+            }
+
+            .how__step {
+                padding-top: 48px;
+            }
+
+            .how__container::before {
+                width: 250px;
+                height: 250px;
+                top: -80px;
+                right: -60px;
             }
         }
     </style>
@@ -1711,8 +1872,37 @@
     </section>
 
     <!-- ===== HOW IT WORKS ===== -->
-    <section id="how-it-works" class="section--dark section-placeholder">
-        <span class="section-placeholder__label">How It Works Section</span>
+    <section id="how-it-works" class="how">
+        <div class="how__container reveal">
+
+            <span class="how__eyebrow">Как это работает</span>
+            <h2 class="how__title">4&nbsp;простых шага к&nbsp;первой сессии</h2>
+            <p class="how__subtitle">Весь процесс&nbsp;— онлайн. Никуда ехать не&nbsp;нужно.</p>
+
+            <div class="how__steps">
+                <div class="how__step">
+                    <span class="how__step-number">01</span>
+                    <h3 class="how__step-title">Выберите время</h3>
+                    <p class="how__step-desc">Посмотрите свободные слоты в&nbsp;календаре и&nbsp;выберите удобный день и&nbsp;время.</p>
+                </div>
+                <div class="how__step">
+                    <span class="how__step-number">02</span>
+                    <h3 class="how__step-title">Оплатите онлайн</h3>
+                    <p class="how__step-desc">Безопасная оплата картой, СБП или переводом. Подтверждение приходит мгновенно.</p>
+                </div>
+                <div class="how__step">
+                    <span class="how__step-number">03</span>
+                    <h3 class="how__step-title">Получите ссылку</h3>
+                    <p class="how__step-desc">За&nbsp;час до&nbsp;сессии придёт ссылка на&nbsp;Zoom. Подключайтесь из&nbsp;любого удобного места.</p>
+                </div>
+                <div class="how__step">
+                    <span class="how__step-number">04</span>
+                    <h3 class="how__step-title">Начните работу</h3>
+                    <p class="how__step-desc">50&nbsp;минут&nbsp;— только вы и&nbsp;ваш запрос. Всё конфиденциально, без записи.</p>
+                </div>
+            </div>
+
+        </div>
     </section>
 
     <!-- ===== REVIEWS ===== -->
