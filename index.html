@@ -939,6 +939,143 @@
 
 
         /* ==========================================================================
+           ABOUT
+           ========================================================================== */
+
+        .about {
+            padding: var(--space-24) var(--space-6);
+        }
+
+        .about__container {
+            max-width: var(--container-wide);
+            margin: 0 auto;
+            background: var(--bg-secondary);
+            border-radius: var(--radius-2xl);
+            padding: 80px;
+        }
+
+        .about__grid {
+            display: grid;
+            grid-template-columns: 0.8fr 1.2fr;
+            gap: var(--space-16);
+            align-items: start;
+        }
+
+        /* Photo with decorative offset border */
+        .about__photo-wrap {
+            position: relative;
+        }
+
+        .about__photo-wrap::before {
+            content: '';
+            position: absolute;
+            top: -8px;
+            left: -8px;
+            right: -8px;
+            bottom: -8px;
+            border: 1.5px solid var(--accent-navy-muted);
+            border-radius: 20px;
+            z-index: 0;
+        }
+
+        .about__photo {
+            width: 100%;
+            aspect-ratio: 3 / 4;
+            object-fit: cover;
+            border-radius: var(--radius-lg);
+            display: block;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Text content */
+        .about__eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-3);
+            font-family: var(--font-body);
+            font-size: 0.8125rem;
+            font-weight: var(--weight-medium);
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: var(--accent-navy);
+            margin-bottom: var(--space-4);
+        }
+
+        .about__eyebrow::before {
+            content: '';
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--accent-navy);
+            border-radius: 1px;
+            flex-shrink: 0;
+        }
+
+        .about__title {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            font-weight: var(--weight-regular);
+            color: var(--text-primary);
+            line-height: var(--leading-tight);
+            margin-bottom: var(--space-5);
+        }
+
+        .about__description {
+            font-size: var(--text-base);
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: var(--space-8);
+            max-width: 520px;
+        }
+
+        /* 2x2 detail cards grid */
+        .about__details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: var(--space-8);
+        }
+
+        .about__detail-card {
+            background: var(--bg-card);
+            border-radius: var(--radius-md);
+            padding: 20px;
+        }
+
+        .about__detail-title {
+            font-family: var(--font-body);
+            font-size: var(--text-sm);
+            font-weight: var(--weight-semibold);
+            color: var(--accent-navy);
+            margin-bottom: var(--space-2);
+            letter-spacing: 0.01em;
+        }
+
+        .about__detail-text {
+            font-size: var(--text-sm);
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Blockquote */
+        .about__quote {
+            border-left: 3px solid var(--accent-navy);
+            padding-left: var(--space-6);
+            margin: 0;
+        }
+
+        .about__quote p {
+            font-family: var(--font-heading);
+            font-size: var(--text-md);
+            font-style: italic;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            font-weight: var(--weight-regular);
+        }
+
+
+        /* ==========================================================================
            PLACEHOLDER SECTION STYLES (temporary visual markers)
            ========================================================================== */
 
@@ -1008,6 +1145,19 @@
             .hero__float-card {
                 bottom: 40px;
                 left: 20px;
+            }
+
+            /* About tablet */
+            .about__container {
+                padding: 56px;
+            }
+
+            .about__grid {
+                gap: var(--space-10);
+            }
+
+            .about__title {
+                font-size: 2rem;
             }
         }
 
@@ -1119,6 +1269,37 @@
             .hero__float-card {
                 display: none;
             }
+
+            /* About mobile */
+            .about {
+                padding: var(--space-16) var(--space-4);
+            }
+
+            .about__container {
+                padding: 40px 24px;
+                border-radius: var(--radius-xl);
+            }
+
+            .about__grid {
+                grid-template-columns: 1fr;
+                gap: var(--space-8);
+            }
+
+            .about__photo {
+                aspect-ratio: 4 / 3;
+            }
+
+            .about__title {
+                font-size: 1.75rem;
+            }
+
+            .about__description {
+                max-width: 100%;
+            }
+
+            .about__details {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -1223,8 +1404,54 @@
     </section>
 
     <!-- ===== ABOUT ===== -->
-    <section id="about" class="section--secondary section-placeholder">
-        <span class="section-placeholder__label">About Section</span>
+    <section id="about" class="about section--primary">
+        <div class="about__container">
+            <div class="about__grid">
+
+                <!-- Photo column -->
+                <div class="about__photo-wrap reveal">
+                    <img
+                        class="about__photo"
+                        src="https://images.pexels.com/photos/5699466/pexels-photo-5699466.jpeg?auto=compress&cs=tinysrgb&w=600"
+                        alt="Елена Морозова — клинический психолог"
+                        loading="lazy"
+                    >
+                </div>
+
+                <!-- Text column -->
+                <div class="about__content">
+                    <span class="about__eyebrow reveal">Обо мне</span>
+
+                    <h2 class="about__title reveal">Елена Морозова</h2>
+
+                    <p class="about__description reveal">Клинический психолог, КПТ-терапевт. Работаю со&nbsp;взрослыми людьми, которые хотят лучше понимать себя и&nbsp;свои реакции. Не&nbsp;даю советов&nbsp;— помогаю найти ваши собственные ответы.</p>
+
+                    <div class="about__details reveal">
+                        <div class="about__detail-card">
+                            <div class="about__detail-title">Образование</div>
+                            <div class="about__detail-text">МГУ, факультет психологии. Сертификация АКПП (когнитивно-поведенческая терапия)</div>
+                        </div>
+                        <div class="about__detail-card">
+                            <div class="about__detail-title">Специализация</div>
+                            <div class="about__detail-text">Тревожные расстройства, выгорание, кризисы отношений, самооценка</div>
+                        </div>
+                        <div class="about__detail-card">
+                            <div class="about__detail-title">Формат</div>
+                            <div class="about__detail-text">Онлайн (Zoom/Google Meet). Сессия 50&nbsp;минут, 1–2&nbsp;раза в&nbsp;неделю</div>
+                        </div>
+                        <div class="about__detail-card">
+                            <div class="about__detail-title">Подход</div>
+                            <div class="about__detail-text">КПТ, элементы ACT и&nbsp;схема-терапии. Научно обоснованные методы</div>
+                        </div>
+                    </div>
+
+                    <blockquote class="about__quote reveal">
+                        <p>«Терапия — это не про исправление. Это про то, чтобы научиться быть на своей стороне»</p>
+                    </blockquote>
+                </div>
+
+            </div>
+        </div>
     </section>
 
     <!-- ===== SERVICES ===== -->
