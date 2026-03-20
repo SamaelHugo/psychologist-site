@@ -14,16 +14,18 @@ Demo project for web developer portfolio. Must look like a real production site.
 - Images from Pexels (direct URLs via images.pexels.com)
 
 ## Design Direction
-- WARM, organic, trust-building aesthetic
-- Light theme with warm beige/cream background
-- NOT clinical white, NOT corporate blue, NOT dark theme
-- One natural accent (sage/olive/moss green range)
-- One warm CTA accent (terracotta/clay range)
-- Serif headings + refined sans-serif body
-- Rounded corners, generous whitespace, soft shadows
+- Clean, professional, trust-building aesthetic
+- Light theme with clean white background (#FAFBFD) + soft gray secondary (#F0F2F5)
+- Primary accent: deep navy (#1E3A5F) — authority, calm professionalism
+- CTA accent: soft coral (#E07A5F) — warm, inviting action color
+- Navy variations: light (#E8EDF2), muted (#94A3B8), dark (#152C4A)
+- Text: dark navy (#1A2B3D) headings, blue-gray (#64748B) body
+- Dark section: deep navy background (#1E3A5F)
+- Serif headings (Fraunces) + refined sans-serif body (Outfit)
+- Rounded corners, generous whitespace, soft cool-toned shadows
 
 ## Progress
-- [ ] Design system + nav
+- [x] Design system + nav
 - [ ] Hero section
 - [ ] About section
 - [ ] Services (6 cards)
